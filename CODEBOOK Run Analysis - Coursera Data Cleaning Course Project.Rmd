@@ -1,0 +1,60 @@
+##CODEBOOK
+
+---
+title: "Run.Analysis -  Codebook"
+author: "BonnieElli"
+date: "January 20, 2019"
+output: html_document
+---
+
+
+###DESCRIPTION OF THE DATA
+
+The data for this Coursera - Data Cleaning Course Project is taken from the Human Activity Recognition Using Smartphones Dataset, Version 1.0. The experiment was conducted by Smartlab - Non Linear Complex Systems Laboratory in Genoa, Italy at the DITEN - Università degli Studi di Genova, by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. The experiments were carried out with a group of 30 volunteers within the ages 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on their waist. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details.
+The data is available at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip. 
+
+
+###CONTENTS OF THE ZIP USED IN THIS R SCRIPT
+.	activity_labels.txt: Contains the names and ID codes for the 6 activities.
+.	features.txt: Contains the Names of the 561 features/variables.
+.	X_train.txt: Train data set. Contains 7352 observations of the 561 features.
+.	subject_train.txt: Identifiers of the subject who carried out the experiment X_train.txt.
+.	y_train.txt: ID codes for the activities listed in X_train.txt.
+.	X_test.txt: Test data set. Contains 2947 observations of the 561 features.
+.	subject_test.txt: Identifiers of the subject who carried out the experiment X_test.txt.
+.	y_test.txt: ID codes for the activities listed in X_train.txt.
+
+The raw signal data in the Inertial Signals folders were NOT used in this project.
+
+
+###WHAT THIS R SCRIPT DOES
+
+1.	Merges the training and the test sets to create one data set.
+2.	Extracts only the measurements on the mean and standard deviation for each measurement.
+3.	Uses descriptive activity names to name the activities in the data set
+4.	Appropriately labels the data set with descriptive activity names.
+5.	Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+###HOW THE SCRIPT PERFORMS
+1.	The script loads necessary libraries. It checks if a directory is available and if not, creates one. It then downloads the file from the url and stores it. The file is then unzipped, and the contents specified in the parameters are read into tables.
+2.	The test sets and the train sets are bound first by one another and then to one another to make one merged set of data.
+3.	The script then subsets the variables containing strings "mean()" and "std()". The result is a smaller data set containing feature columns, subject ID's and activity codes.
+4.	The activity codes are then converted to character strings and are inputted in place of their corresponding numeric values in the activity column where they are then transformed into descriptive activity names.
+5.	Abbreviations and incomplete names are then subbed out and replaced by appropriate descriptive names.
+6.	A tidy data set is then created containing the mean of each feature for each subject and each activity and this file is written out to the directory as a csv and a txt file for your convenience.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
